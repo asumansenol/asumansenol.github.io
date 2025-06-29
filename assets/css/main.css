@@ -1706,6 +1706,8 @@ section,
   transition: 0.3s;
   background-color: var(--surface-color);
   height: 100%;
+  max-width: 400px;
+  width: 100%;
 }
 
 .team .team-card:hover {
