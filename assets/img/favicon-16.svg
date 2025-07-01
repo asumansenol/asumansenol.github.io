@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+  <defs>
+    <linearGradient id="smallBgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a8e6f0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="8" cy="8" r="7" fill="url(#smallBgGradient)" stroke="#018880" stroke-width="1"/>
+  
+  <!-- Code symbols - smaller for 16x16 -->
+  <text x="3" y="11" font-family="monospace" font-size="7" font-weight="bold" fill="#018880">&lt;</text>
+  <text x="7" y="10" font-family="monospace" font-size="6" font-weight="bold" fill="#87ceeb">/</text>
+  <text x="11" y="11" font-family="monospace" font-size="7" font-weight="bold" fill="#018880">&gt;</text>
+</svg>
