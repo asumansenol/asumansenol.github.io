@@ -1,44 +1,71 @@
 <?php
-  /**
-  * Requires the "PHP Email Form" library
-  * The "PHP Email Form" library is available only in the pro version of the template
-  * The library should be uploaded to: vendor/php-email-form/php-email-form.php
-  * For more info and help: https://bootstrapmade.com/php-email-form/
-  */
+/**
+ * Simple Contact Form Handler for CODEVIA
+ * This version uses PHP's built-in mail() function
+ */
 
-  // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'contact@example.com';
+// Validate that this is a POST request
+if ($_SERVER["REQUEST_METHOD"] != "POST") {
+    http_response_code(405);
+    echo 'Method not allowed';
+    exit;
+}
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
+// Receiving email address
+$receiving_email_address = 'asumansenol@gmail.com';
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
+// Get and sanitize form data
+$name = isset($_POST['name']) ? trim($_POST['name']) : '';
+$email = isset($_POST['email']) ? trim($_POST['email']) : '';
+$subject = isset($_POST['subject']) ? trim($_POST['subject']) : '';
+$message = isset($_POST['message']) ? trim($_POST['message']) : '';
 
-  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-  /*
-  $contact->smtp = array(
-    'host' => 'example.com',
-    'username' => 'example',
-    'password' => 'pass',
-    'port' => '587'
-  );
-  */
+// Basic validation
+$errors = [];
 
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  if(isset($_POST['phone'])) {
-    $contact->add_message( $_POST['phone'], 'Phone');
-  }
-  $contact->add_message( $_POST['message'], 'Message', 10);
+if (empty($name)) {
+    $errors[] = 'Name is required';
+}
 
-  echo $contact->send();
+if (empty($email)) {
+    $errors[] = 'Email is required';
+} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errors[] = 'Invalid email format';
+}
+
+if (empty($subject)) {
+    $errors[] = 'Subject is required';
+}
+
+if (empty($message)) {
+    $errors[] = 'Message is required';
+}
+
+// If there are validation errors, return them
+if (!empty($errors)) {
+    http_response_code(400);
+    echo implode(', ', $errors);
+    exit;
+}
+
+// Prepare email
+$email_subject = "Contact Form: " . $subject;
+$email_body = "You have received a new message from the CODEVIA contact form.\n\n";
+$email_body .= "Name: " . $name . "\n";
+$email_body .= "Email: " . $email . "\n";
+$email_body .= "Subject: " . $subject . "\n\n";
+$email_body .= "Message:\n" . $message . "\n";
+
+// Email headers
+$headers = "From: " . $email . "\r\n";
+$headers .= "Reply-To: " . $email . "\r\n";
+$headers .= "X-Mailer: PHP/" . phpversion();
+
+// Attempt to send email
+if (mail($receiving_email_address, $email_subject, $email_body, $headers)) {
+    echo 'OK';
+} else {
+    http_response_code(500);
+    echo 'Failed to send message. Please try again later.';
+}
 ?>
