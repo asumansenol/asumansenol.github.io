@@ -22,7 +22,9 @@
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #444d4d; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #003a36; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #018880; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --accent-color: #0b3d91; /* Primary accent (navy blue) */
+  --accent-color-2: #0d6efd; /* Secondary accent (bright blue) */
+  --accent-gradient: linear-gradient(135deg, var(--accent-color), var(--accent-color-2));
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -53,6 +55,11 @@
   --contrast-color: #018880;
 }
 
+/* Use a subtle navy-blue gradient for dark sections (hero) to add color depth */
+.dark-background {
+  background: var(--accent-gradient);
+}
+
 /* Smooth scroll */
 :root {
   scroll-behavior: smooth;
@@ -68,7 +75,7 @@ body {
 }
 
 a {
-  color: var(--accent-color);
+  color: var(--accent-color-2);
   text-decoration: none;
   transition: 0.3s;
 }
@@ -159,9 +166,19 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 36px;
+  max-height: 48px;
   margin-right: 8px;
 }
+
+@media (min-width: 1200px) {
+  .header .logo img { max-height: 56px; }
+}
+
+/* Show white logo by default; switch to colored logo when body has .scrolled */
+.header .logo img.logo-colored { display: none; }
+.header .logo img.logo-white { display: inline-block; }
+.scrolled .header .logo img.logo-colored { display: inline-block; }
+.scrolled .header .logo img.logo-white { display: none; }
 
 .header .logo h1 {
   font-size: 30px;
@@ -173,7 +190,7 @@ h6 {
 .header .btn-getstarted,
 .header .btn-getstarted:focus {
   color: var(--contrast-color);
-  background: var(--accent-color);
+  background: var(--accent-gradient);
   font-size: 14px;
   padding: 8px 26px;
   margin: 0;
@@ -210,7 +227,7 @@ h6 {
 /* Global Header on Scroll
 ------------------------------*/
 .scrolled .header {
-  --background-color: rgba(0, 87, 81, 0.9);
+  --background-color: rgba(11, 61, 145, 0.9);
 }
 
 /*--------------------------------------------------------------

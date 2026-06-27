@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="CODEVIA favicon">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0%" stop-color="#6f42c1"/>
+      <stop offset="100%" stop-color="#0d6efd"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="10" fill="none" />
+  <g stroke-linecap="round" stroke-linejoin="round" stroke="#0b1226" stroke-width="1.6">
+    <line x1="18" y1="25" x2="44" y2="20" />
+    <line x1="44" y1="20" x2="48" y2="40" />
+    <line x1="48" y1="40" x2="26" y2="50" />
+    <line x1="26" y1="50" x2="18" y2="25" />
+  </g>
+  <circle cx="18" cy="25" r="3.8" fill="#0b1226" />
+  <circle cx="44" cy="20" r="3.8" fill="#0b1226" />
+  <circle cx="48" cy="40" r="5" fill="url(#g)" />
+  <circle cx="26" cy="50" r="3.8" fill="#0b1226" />
+</svg>

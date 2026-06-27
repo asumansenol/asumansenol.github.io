@@ -1,0 +1,24 @@
+<svg width="520" height="140" viewBox="0 0 520 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <line x1="47" y1="47" x2="88" y2="37" stroke="#111111" stroke-width="2.2" />
+  <line x1="88" y1="37" x2="96" y2="77" stroke="#111111" stroke-width="2.2" />
+  <line x1="96" y1="77" x2="58" y2="95" stroke="#111111" stroke-width="2.2" />
+  <line x1="58" y1="95" x2="47" y2="47" stroke="#111111" stroke-width="2.2" />
+  <line x1="47" y1="47" x2="96" y2="77" stroke="#111111" stroke-width="2.2" />
+
+  <circle cx="47" cy="47" r="8" fill="#111111" />
+  <circle cx="88" cy="37" r="7" fill="#111111" />
+  <circle cx="96" cy="77" r="9" fill="#7C3AED" />
+  <circle cx="58" cy="95" r="7" fill="#111111" />
+
+  <text
+    x="132"
+    y="83"
+    fill="#13163F"
+    font-size="49"
+    font-family="'Sora', 'Poppins', 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-weight="600"
+    letter-spacing="-0.8"
+  >
+    Privia
+  </text>
+</svg>
