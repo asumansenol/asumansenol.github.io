@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="CODEVIA logo">
+  <rect width="120" height="120" rx="12" fill="none" />
+  <g stroke-linecap="round" stroke-linejoin="round" stroke="#111111" stroke-width="2">
+    <line x1="28" y1="38" x2="68" y2="28" />
+    <line x1="68" y1="28" x2="76" y2="68" />
+    <line x1="76" y1="68" x2="38" y2="86" />
+    <line x1="38" y1="86" x2="28" y2="38" />
+    <line x1="28" y1="38" x2="76" y2="68" />
+  </g>
+  <circle cx="28" cy="38" r="6" fill="#111111" />
+  <circle cx="68" cy="28" r="6" fill="#111111" />
+  <circle cx="76" cy="68" r="8" fill="#7C3AED" />
+  <circle cx="38" cy="86" r="6" fill="#111111" />
+
+  <g transform="translate(6,4)">
+    <text x="6" y="114" font-family="Poppins, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="18" fill="#0b1226">CODEVIA</text>
+    <text x="6" y="132" font-family="Poppins, Roboto, Helvetica, Arial, sans-serif" font-size="9" fill="#4b5563">AI · Data · Cloud</text>
+  </g>
+</svg>
